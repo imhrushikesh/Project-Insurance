@@ -1,0 +1,11 @@
+[2023-02-12 22:46:27,046] root - INFO - Exporting collection data as pandas dataframe
+[2023-02-12 22:46:27,046] root - INFO - Reading data from database: INSURANCE and collection: INSURANCE_PROJECT
+[2023-02-12 22:46:27,108] root - INFO - Found columns: Index(['_id', 'age', 'sex', 'bmi', 'children', 'smoker', 'region', 'expenses'], dtype='object')
+[2023-02-12 22:46:27,109] root - INFO - Dropping column: _id
+[2023-02-12 22:46:27,110] root - INFO - Row and columns in df: (1338, 7)
+[2023-02-12 22:46:27,110] root - INFO - Save data in feature store
+[2023-02-12 22:46:27,111] root - INFO - Create feature store folder if not available
+[2023-02-12 22:46:27,111] root - INFO - Save df to feature store folder
+[2023-02-12 22:46:27,118] root - INFO - split dataset into train and test set
+[2023-02-12 22:46:27,120] root - INFO - create dataset directory folder if not available
+[2023-02-12 22:46:27,120] root - INFO - Save df to feature store folder
