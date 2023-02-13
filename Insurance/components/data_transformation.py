@@ -1,15 +1,17 @@
 from Insurance.entity import artifact_entity,config_entity
 from Insurance.exception import InsuranceException
-import os,sys
+from Insurance.logger import logging
+from typing import Optional
+import os,sys 
 from sklearn.pipeline import Pipeline
+import pandas as pd
+from Insurance import utils
+import numpy as np
+from sklearn.preprocessing import LabelEncoder
+#from imblearn.combine import SMOTETomek
 from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import RobustScaler
-import pandas as pd
-import numpy as np
 from Insurance.config import TARGET_COLUMN
-from sklearn.preprocessing import LabelEncoder
-from Insurance import utils
-#from imblearn.combine import SMOTETomek
 
 
 # Missing values imputation
