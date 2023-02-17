@@ -1,0 +1,3 @@
+[2023-02-17 21:58:47,845] root - INFO - Creating model resolver object
+[2023-02-17 21:58:47,845] root - INFO - Reading file :/config/workspace/insurance.csv
+[2023-02-17 21:58:47,854] root - INFO - Loading transformer to transform dataset

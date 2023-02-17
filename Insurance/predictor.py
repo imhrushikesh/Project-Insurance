@@ -11,14 +11,14 @@ from Insurance.entity.config_entity import TRANSFORMER_OBJECT_FILE_NAME,MODEL_FI
 
 class ModelResolver:
     def __init__(self, model_registry:str = "saved_models", #
-                transfomer_dir_name = "transfomer",
+                transformer_dir_name = "transfomer",
                 traget_encoder_dir_name = "target_encoder",
                 model_dir_name = "model"):
 
         
         self.model_registry = model_registry
         os.makedirs(self.model_registry, exist_ok=True)
-        self.transfomer_dir_name = transfomer_dir_name
+        self.transformer_dir_name = transformer_dir_name
         self.traget_encoder_dir_name = traget_encoder_dir_name
         self.model_dir_name = model_dir_name
 
@@ -93,10 +93,10 @@ class ModelResolver:
             raise e
 
 
-    def get_latest_save_transfomer_path(self):
+    def get_latest_save_transformer_path(self):
         try:
             latest_dir = self.get_latest_save_dir_path()
-            return os.path.join(latest_dir, self.transfomer_dir_name, TRANSFORMER_OBJECT_FILE_NAME) # transform.pkl
+            return os.path.join(latest_dir, self.transformer_dir_name, TRANSFORMER_OBJECT_FILE_NAME) # transform.pkl
         except Exception as e:
             raise 
 

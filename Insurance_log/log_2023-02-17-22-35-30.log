@@ -1,0 +1,49 @@
+[2023-02-17 22:35:31,757] root - INFO - Exporting collection data as pandas dataframe
+[2023-02-17 22:35:31,757] root - INFO - Reading data from database: INSURANCE and collection: INSURANCE_PROJECT
+[2023-02-17 22:35:31,821] root - INFO - Found columns: Index(['_id', 'age', 'sex', 'bmi', 'children', 'smoker', 'region', 'expenses'], dtype='object')
+[2023-02-17 22:35:31,821] root - INFO - Dropping column: _id
+[2023-02-17 22:35:31,822] root - INFO - Row and columns in df: (1338, 7)
+[2023-02-17 22:35:31,823] root - INFO - Save data in feature store
+[2023-02-17 22:35:31,823] root - INFO - Create feature store folder if not available
+[2023-02-17 22:35:31,823] root - INFO - Save df to feature store folder
+[2023-02-17 22:35:31,830] root - INFO - split dataset into train and test set
+[2023-02-17 22:35:31,832] root - INFO - create dataset directory folder if not available
+[2023-02-17 22:35:31,832] root - INFO - Save df to feature store folder
+[2023-02-17 22:35:31,838] root - INFO - Data ingestion artifact: DataIngestionArtifact(feature_store_file_path='/config/workspace/artifact/02172023__223531/data_ingestion/feature_store/insurance.csv', train_file_path='/config/workspace/artifact/02172023__223531/data_ingestion/dataset/train.csv', test_file_path='/config/workspace/artifact/02172023__223531/data_ingestion/dataset/test.csv')
+[2023-02-17 22:35:31,839] root - INFO - Reading base dataframe
+[2023-02-17 22:35:31,843] root - INFO - Replace na value in base df
+[2023-02-17 22:35:31,843] root - INFO - Drop null values colums from base df
+[2023-02-17 22:35:31,845] root - INFO - selecting column name which contains null above to 0.2
+[2023-02-17 22:35:31,846] root - INFO - Columns to drop: []
+[2023-02-17 22:35:31,846] root - INFO - Reading train dataframe
+[2023-02-17 22:35:31,849] root - INFO - Reading test dataframe
+[2023-02-17 22:35:31,853] root - INFO - selecting column name which contains null above to 0.2
+[2023-02-17 22:35:31,853] root - INFO - Columns to drop: []
+[2023-02-17 22:35:31,855] root - INFO - selecting column name which contains null above to 0.2
+[2023-02-17 22:35:31,855] root - INFO - Columns to drop: []
+[2023-02-17 22:35:31,859] root - INFO - Is all required columns present in train df
+[2023-02-17 22:35:31,859] root - INFO - Is all required columns present in test df
+[2023-02-17 22:35:31,859] root - INFO - As all column are available in train df hence detecting data drift
+[2023-02-17 22:35:31,871] root - INFO - As all column are available in test df hence detecting data drift
+[2023-02-17 22:35:31,879] root - INFO - Write reprt in yaml file
+[2023-02-17 22:35:31,884] root - INFO - Data validation artifact: DataValidationArtifact(report_file_path='/config/workspace/artifact/02172023__223531/data_validation/report.yaml')
+[2023-02-17 22:35:31,906] root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Model Trainer <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2023-02-17 22:35:31,906] root - INFO - Loading train and test array.
+[2023-02-17 22:35:31,976] root - INFO - Splitting input and target feature from both train and test arr.
+[2023-02-17 22:35:31,976] root - INFO - Train the model
+[2023-02-17 22:35:31,978] root - INFO - Calculating f1 train score
+[2023-02-17 22:35:31,979] root - INFO - Calculating f1 test score
+[2023-02-17 22:35:31,980] root - INFO - train score:0.7475774924460041 and tests score 0.762331239232596
+[2023-02-17 22:35:31,980] root - INFO - Checking if our model is underfitting or not
+[2023-02-17 22:35:31,980] root - INFO - Checking if our model is overfiiting or not
+[2023-02-17 22:35:31,980] root - INFO - Saving mode object
+[2023-02-17 22:35:31,981] root - INFO - Prepare the artifact
+[2023-02-17 22:35:31,981] root - INFO - Model trainer artifact: ModelTrainerArtifact(model_path='/config/workspace/artifact/02172023__223531/model_trainer/model/model.pkl', r2_train_score=0.7475774924460041, r2_test_score=0.762331239232596)
+[2023-02-17 22:35:31,981] root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  Model Evaluation <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2023-02-17 22:35:31,981] root - INFO - if saved model folder has model the we will compare which model is best trained or the model from saved model folder
+[2023-02-17 22:35:31,981] root - INFO - Model evaluation artifact: ModelEvaluationArtifact(is_model_accepted=True, improved_accuracy=None)
+[2023-02-17 22:35:31,981] root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Data Transformation <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2023-02-17 22:35:31,981] root - INFO - Loading transformer model and target encoder
+[2023-02-17 22:35:31,982] root - INFO - Saving model into model pusher directory
+[2023-02-17 22:35:31,984] root - INFO - Saving model in saved model dir
+[2023-02-17 22:35:31,986] root - INFO - Model pusher artifact: ModelPusherArtifact(pusher_model_dir='/config/workspace/artifact/02172023__223531/model_pusher/saved_models', saved_model_dir='saved_models')

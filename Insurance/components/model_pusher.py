@@ -1,21 +1,10 @@
-from Insurance.entity import artifact_entity,config_entity
-from Insurance.exception import InsuranceException
-from Insurance.logger import logging
-from typing import Optional
-import os,sys
-from Insurance.utils import load_object, save_object
-from sklearn.pipeline import Pipeline
-import pandas as pd
-from Insurance import utils
-from sklearn.linear_model import LinearRegression
-from sklearn.metrics import r2_score
 from Insurance.predictor import ModelResolver
-from Insurance.config import TARGET_COLUMN
-from Insurance.entity.artifact_entity import DataTransformationArtifact,ModelTrainerArtifact,ModelPusherArtifact
 from Insurance.entity.config_entity import ModelPusherConfig
-
-
-
+from Insurance.exception import InsuranceException
+import os,sys
+from Insurance.utils import load_object,save_object
+from Insurance.logger import logging
+from Insurance.entity.artifact_entity import DataTransformationArtifact,ModelTrainerArtifact,ModelPusherArtifact
 
 class ModelPusher:
 
@@ -31,7 +20,6 @@ class ModelPusher:
         except Exception as e:
             raise InsuranceException(e, sys)
 
-
     def initiate_model_pusher(self,)->ModelPusherArtifact:
         try:
             #load object
@@ -46,9 +34,10 @@ class ModelPusher:
             save_object(file_path=self.model_pusher_config.pusher_model_path, obj=model)
             save_object(file_path=self.model_pusher_config.pusher_target_encoder_path, obj=target_encoder)
 
+
             #saved model dir
             logging.info(f"Saving model in saved model dir")
-            transformer_path=self.model_resolver.get_latest_save_transfomer_path()
+            transformer_path=self.model_resolver.get_latest_save_transformer_path()
             model_path=self.model_resolver.get_latest_save_model_path()
             target_encoder_path=self.model_resolver.get_latest_save_target_encoder_path()
 
@@ -62,3 +51,4 @@ class ModelPusher:
             return model_pusher_artifact
         except Exception as e:
             raise InsuranceException(e, sys)
+
