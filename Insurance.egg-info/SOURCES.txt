@@ -22,3 +22,5 @@ Insurance/entity/config_entity.py
 Insurance/exception/__init__.py
 Insurance/logger/__init__.py
 Insurance/pipeline/__init__.py
+Insurance/pipeline/batch_prediction.py
+Insurance/pipeline/training_pipeline.py
