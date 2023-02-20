@@ -1,0 +1,65 @@
+[2023-02-20 11:47:56,680] root - INFO - Exporting collection data as pandas dataframe
+[2023-02-20 11:47:56,681] root - INFO - Reading data from database: INSURANCE and collection: INSURANCE_PROJECT
+[2023-02-20 11:47:56,744] root - INFO - Found columns: Index(['_id', 'age', 'sex', 'bmi', 'children', 'smoker', 'region', 'expenses'], dtype='object')
+[2023-02-20 11:47:56,744] root - INFO - Dropping column: _id
+[2023-02-20 11:47:56,746] root - INFO - Row and columns in df: (1338, 7)
+[2023-02-20 11:47:56,746] root - INFO - Save data in feature store
+[2023-02-20 11:47:56,746] root - INFO - Create feature store folder if not available
+[2023-02-20 11:47:56,746] root - INFO - Save df to feature store folder
+[2023-02-20 11:47:56,753] root - INFO - split dataset into train and test set
+[2023-02-20 11:47:56,755] root - INFO - create dataset directory folder if not available
+[2023-02-20 11:47:56,755] root - INFO - Save df to feature store folder
+[2023-02-20 11:47:56,761] root - INFO - Data ingestion artifact: DataIngestionArtifact(feature_store_file_path='/config/workspace/artifact/02202023__114756/data_ingestion/feature_store/insurance.csv', train_file_path='/config/workspace/artifact/02202023__114756/data_ingestion/dataset/train.csv', test_file_path='/config/workspace/artifact/02202023__114756/data_ingestion/dataset/test.csv')
+[2023-02-20 11:47:56,761] root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Data Validation <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2023-02-20 11:47:56,761] root - INFO - Reading base dataframe
+[2023-02-20 11:47:56,766] root - INFO - Replace na value in base df
+[2023-02-20 11:47:56,766] root - INFO - Drop null values colums from base df
+[2023-02-20 11:47:56,768] root - INFO - selecting column name which contains null above to 0.2
+[2023-02-20 11:47:56,768] root - INFO - Columns to drop: []
+[2023-02-20 11:47:56,769] root - INFO - Reading train dataframe
+[2023-02-20 11:47:56,771] root - INFO - Reading test dataframe
+[2023-02-20 11:47:56,773] root - INFO - Drop null values colums from train df
+[2023-02-20 11:47:56,775] root - INFO - selecting column name which contains null above to 0.2
+[2023-02-20 11:47:56,775] root - INFO - Columns to drop: []
+[2023-02-20 11:47:56,776] root - INFO - Drop null values colums from test df
+[2023-02-20 11:47:56,777] root - INFO - selecting column name which contains null above to 0.2
+[2023-02-20 11:47:56,777] root - INFO - Columns to drop: []
+[2023-02-20 11:47:56,781] root - INFO - Is all required columns present in train df
+[2023-02-20 11:47:56,781] root - INFO - Is all required columns present in test df
+[2023-02-20 11:47:56,781] root - INFO - As all column are available in train df hence detecting data drift
+[2023-02-20 11:47:56,781] root - INFO - Hypothesis age: float64, float64 
+[2023-02-20 11:47:56,782] root - INFO - Hypothesis sex: object, object 
+[2023-02-20 11:47:56,785] root - INFO - Hypothesis bmi: float64, float64 
+[2023-02-20 11:47:56,786] root - INFO - Hypothesis children: float64, float64 
+[2023-02-20 11:47:56,786] root - INFO - Hypothesis smoker: object, object 
+[2023-02-20 11:47:56,789] root - INFO - Hypothesis region: object, object 
+[2023-02-20 11:47:56,793] root - INFO - Hypothesis expenses: float64, float64 
+[2023-02-20 11:47:56,793] root - INFO - As all column are available in test df hence detecting data drift
+[2023-02-20 11:47:56,794] root - INFO - Hypothesis age: float64, float64 
+[2023-02-20 11:47:56,794] root - INFO - Hypothesis sex: object, object 
+[2023-02-20 11:47:56,796] root - INFO - Hypothesis bmi: float64, float64 
+[2023-02-20 11:47:56,797] root - INFO - Hypothesis children: float64, float64 
+[2023-02-20 11:47:56,797] root - INFO - Hypothesis smoker: object, object 
+[2023-02-20 11:47:56,799] root - INFO - Hypothesis region: object, object 
+[2023-02-20 11:47:56,801] root - INFO - Hypothesis expenses: float64, float64 
+[2023-02-20 11:47:56,802] root - INFO - Write reprt in yaml file
+[2023-02-20 11:47:56,807] root - INFO - Data validation artifact: DataValidationArtifact(report_file_path='/config/workspace/artifact/02202023__114756/data_validation/report.yaml')
+[2023-02-20 11:47:56,829] root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Model Trainer <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2023-02-20 11:47:56,829] root - INFO - Loading train and test array.
+[2023-02-20 11:47:56,896] root - INFO - Splitting input and target feature from both train and test arr.
+[2023-02-20 11:47:56,896] root - INFO - Train the model
+[2023-02-20 11:47:56,898] root - INFO - Calculating f1 train score
+[2023-02-20 11:47:56,899] root - INFO - Calculating f1 test score
+[2023-02-20 11:47:56,899] root - INFO - train score:0.7475774924460041 and tests score 0.762331239232596
+[2023-02-20 11:47:56,899] root - INFO - Checking if our model is underfitting or not
+[2023-02-20 11:47:56,899] root - INFO - Checking if our model is overfiiting or not
+[2023-02-20 11:47:56,899] root - INFO - Saving mode object
+[2023-02-20 11:47:56,900] root - INFO - Prepare the artifact
+[2023-02-20 11:47:56,900] root - INFO - Model trainer artifact: ModelTrainerArtifact(model_path='/config/workspace/artifact/02202023__114756/model_trainer/model/model.pkl', r2_train_score=0.7475774924460041, r2_test_score=0.762331239232596)
+[2023-02-20 11:47:56,901] root - INFO - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  Model Evaluation <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2023-02-20 11:47:56,901] root - INFO - if saved model folder has model the we will compare which model is best trained or the model from saved model folder
+[2023-02-20 11:47:56,901] root - INFO - Finding location of transformer model and target encoder
+[2023-02-20 11:47:56,901] root - INFO - Previous trained objects of transformer, model and target encoder
+[2023-02-20 11:47:56,901] root - INFO - Currently trained model objects
+[2023-02-20 11:47:56,909] root - INFO - Accuracy using previous trained model: 0.762331239232596
+[2023-02-20 11:47:56,912] root - INFO - Accuracy using current trained model: 0.762331239232596

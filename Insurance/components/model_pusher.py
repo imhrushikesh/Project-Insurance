@@ -52,3 +52,6 @@ class ModelPusher:
         except Exception as e:
             raise InsuranceException(e, sys)
 
+
+        
+

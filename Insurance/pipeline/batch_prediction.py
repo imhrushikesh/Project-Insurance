@@ -7,7 +7,6 @@ from Insurance.utils import load_object
 import os
 import sys
 from datetime import datetime
-
 PREDICTION_DIR = "prediction"
 
 
@@ -22,7 +21,8 @@ def start_batch_prediction(input_file_path):
         # validation
 
         logging.info(f"Loading transformer to transform dataset")
-        transformer = load_object(file_path=model_resolver.get_latest_transformer_path())
+        transformer = load_object(
+            file_path=model_resolver.get_latest_transformer_path())
 
        
         logging.info(f"Target encoder to convert predicted column into categorical")
